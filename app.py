@@ -22,9 +22,14 @@ def main():
     )
     print(res)
   
+    save_directory = "saved_models"
+
     model_name = "distilbert-base-uncased-finetuned-sst-2-english"
     model = AutoModelForSequenceClassification.from_pretrained(model_name)
     tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+    model.save_pretrained(save_directory)
+    tokenizer.save_pretrained(save_directory)
 
     classifier = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
     res = classifier("I have been waiting for Hugging Face course my whole life.")
