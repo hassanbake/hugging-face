@@ -8,6 +8,7 @@ __pycache__/
 
 # Models Directory
 saved_models/
+saved_models/*
 
 # Distribution / packaging
 .Python
