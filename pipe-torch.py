@@ -3,9 +3,10 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import torch.nn.functional as F
 
-model_name = "distilbert-base-uncased-finetuned-sst-2-english"
-model = AutoModelForSequenceClassification.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+save_directory = "saved_models"
+
+model = AutoModelForSequenceClassification.from_pretrained(save_directory)
+tokenizer =AutoTokenizer.from_pretrained(save_directory)
 
 classifier = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
 
